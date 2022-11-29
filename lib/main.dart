@@ -1,4 +1,6 @@
+import 'package:connectv01pamodzi/screens/auth.dart';
 import 'package:connectv01pamodzi/screens/home.dart';
+import 'package:connectv01pamodzi/utils.dart';
 import 'package:connectv01pamodzi/widget/login_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,8 @@ Future main() async {
   runApp(const MyApp());
 }
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   static final String title = 'Connect Pamodzi';
   const MyApp({super.key});
@@ -21,9 +25,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // scaffoldMessengerKey: Utils.messengerKey,
+      navigatorKey: navigatorKey,
+      debugShowCheckedModeBanner: false,
       title: title,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
+        accentColor: Colors.teal,
       ),
       home: const MainPage(),
     );
@@ -50,7 +58,7 @@ class MainPage extends StatelessWidget {
           } else if (snapshot.hasData) {
             return Home();
           } else {
-            return LoginWidget();
+            return Auth();
           }
         },
       ),

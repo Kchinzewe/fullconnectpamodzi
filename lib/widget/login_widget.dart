@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
 class LoginWidget extends StatefulWidget {
-  const LoginWidget({super.key});
+  // const LoginWidget({super.key});
+
+  final VoidCallback onClickedSignUp;
+
+  const LoginWidget({
+    Key? key,
+    required this.onClickedSignUp,
+  }) : super(key: key);
 
   @override
   State<LoginWidget> createState() => _LoginWidgetState();
@@ -54,7 +61,7 @@ class _LoginWidgetState extends State<LoginWidget> {
           ),
           TextField(
             controller: emailController,
-            cursorColor: Colors.white,
+            cursorColor: Colors.deepPurple,
             textInputAction: TextInputAction.next,
             decoration: InputDecoration(labelText: 'Email'),
           ),
@@ -63,9 +70,10 @@ class _LoginWidgetState extends State<LoginWidget> {
           ),
           TextField(
             controller: passwordController,
-            cursorColor: Colors.white,
+            cursorColor: Colors.deepPurple,
             textInputAction: TextInputAction.next,
             decoration: InputDecoration(labelText: 'Password'),
+            obscureText: true,
           ),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
@@ -80,7 +88,26 @@ class _LoginWidgetState extends State<LoginWidget> {
               style: TextStyle(fontSize: 24),
             ),
             onPressed: signIn,
-          )
+          ),
+          SizedBox(
+            height: 24,
+          ),
+          RichText(
+            text: TextSpan(
+              style: TextStyle(color: Colors.deepPurple, fontSize: 20),
+              text: 'No account? ',
+              children: [
+                TextSpan(
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = widget.onClickedSignUp,
+                    text: 'Sign Up',
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      color: Theme.of(context).colorScheme.secondary,
+                    ))
+              ],
+            ),
+          ),
         ],
       ),
     );
