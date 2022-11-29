@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "982718824185",
+    "project_id": "connectv01pamodzi",
+    "storage_bucket": "connectv01pamodzi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982718824185:android:c971da8b1d12a563136c28",
+        "android_client_info": {
+          "package_name": "com.example.connectv01pamodzi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982718824185-srkkni2gv63c5cgnanrvrst3c0eldq3k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq9PutoDxiJ7Q2dp10Pztnj9u9b6ZSeLM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982718824185-srkkni2gv63c5cgnanrvrst3c0eldq3k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
