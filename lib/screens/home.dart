@@ -22,23 +22,23 @@ class _HomeState extends State<Home> {
   final items = const [
     Icon(
       Icons.home_outlined,
-      size: 20,
+      size: 17,
     ),
     Icon(
       Icons.search_outlined,
-      size: 20,
+      size: 17,
     ),
     Icon(
       Icons.add_a_photo_outlined,
-      size: 20,
+      size: 17,
     ),
     Icon(
       Icons.favorite_border_outlined,
-      size: 20,
+      size: 17,
     ),
     Icon(
       Icons.person_outline_outlined,
-      size: 20,
+      size: 17,
     ),
   ];
 
