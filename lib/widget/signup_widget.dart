@@ -54,29 +54,40 @@ class _SignUpWidgetState extends State<SignUpWidget> {
     }
   }
 
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: EdgeInsets.all(16),
-      child: Form(
+  Scaffold signInScreen() {
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Theme.of(context).accentColor,
+              Theme.of(context).primaryColor,
+            ],
+          ),
+        ),
+        alignment: Alignment.center,
+        child: Form(
         key: formKey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget> [
             SizedBox(
               height: 40,
             ),
             FlutterLogo(
-              size: 120,
+              size: 60,
             ),
             SizedBox(
               height: 20,
             ),
             Text(
-              'Hey There, \n Welcome Back',
-              textAlign: TextAlign.center,
+              'Connect Pamodzi',
               style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
+                fontFamily: "Signatra",
+                fontSize: 90.0,
+                color: Colors.white,
               ),
             ),
             SizedBox(
@@ -84,21 +95,21 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             ),
             TextFormField(
               controller: emailController,
-              cursorColor: Colors.deepPurple,
+              cursorColor: Colors.white,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(labelText: 'Email'),
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: (email) =>
-                  email != null && EmailValidator.validate(email)
-                      ? 'Enter a valid email'
-                      : null,
+              // validator: (email) =>
+              //     email != null && EmailValidator.validate(email)
+              //         ? 'Enter a valid email'
+              //         : null,
             ),
             SizedBox(
               height: 40,
             ),
             TextFormField(
               controller: passwordController,
-              cursorColor: Colors.deepPurple,
+              cursorColor: Colors.white,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(labelText: 'Password'),
               obscureText: true,
@@ -129,7 +140,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             ),
             RichText(
               text: TextSpan(
-                style: TextStyle(color: Colors.deepPurple, fontSize: 20),
+                style: TextStyle(color: Colors.white, fontSize: 20),
                 text: 'Already have an account? ',
                 children: [
                   TextSpan(
@@ -144,8 +155,105 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               ),
             ),
           ],
+          ),
         ),
       ),
     );
+  }
+
+  Widget build(BuildContext context) {
+    return signInScreen();
+    // return SingleChildScrollView(
+    //   padding: EdgeInsets.all(16),
+    //   child: Form(
+    //     key: formKey,
+    //     child: Column(
+    //       mainAxisAlignment: MainAxisAlignment.center,
+    //       children: [
+    //         SizedBox(
+    //           height: 40,
+    //         ),
+    //         FlutterLogo(
+    //           size: 120,
+    //         ),
+    //         SizedBox(
+    //           height: 20,
+    //         ),
+    //         Text(
+    //           'Hey There, \n Welcome Back',
+    //           textAlign: TextAlign.center,
+    //           style: TextStyle(
+    //             fontSize: 32,
+    //             fontWeight: FontWeight.bold,
+    //           ),
+    //         ),
+    //         SizedBox(
+    //           height: 40,
+    //         ),
+    //         TextFormField(
+    //           controller: emailController,
+    //           cursorColor: Colors.deepPurple,
+    //           textInputAction: TextInputAction.next,
+    //           decoration: InputDecoration(labelText: 'Email'),
+    //           autovalidateMode: AutovalidateMode.onUserInteraction,
+    //           validator: (email) =>
+    //               email != null && EmailValidator.validate(email)
+    //                   ? 'Enter a valid email'
+    //                   : null,
+    //         ),
+    //         SizedBox(
+    //           height: 40,
+    //         ),
+    //         TextFormField(
+    //           controller: passwordController,
+    //           cursorColor: Colors.deepPurple,
+    //           textInputAction: TextInputAction.next,
+    //           decoration: InputDecoration(labelText: 'Password'),
+    //           obscureText: true,
+    //           autovalidateMode: AutovalidateMode.onUserInteraction,
+    //           validator: (value) => value != null && value.length < 6
+    //               ? 'Enter a min. of 6 characters'
+    //               : null,
+    //         ),
+    //         SizedBox(
+    //           height: 20,
+    //         ),
+    //         ElevatedButton.icon(
+    //           style: ElevatedButton.styleFrom(
+    //             minimumSize: Size.fromHeight(50),
+    //           ),
+    //           icon: Icon(
+    //             Icons.arrow_forward_ios,
+    //             size: 32,
+    //           ),
+    //           label: Text(
+    //             'Sign Up',
+    //             style: TextStyle(fontSize: 24),
+    //           ),
+    //           onPressed: signUp,
+    //         ),
+    //         SizedBox(
+    //           height: 20,
+    //         ),
+    //         RichText(
+    //           text: TextSpan(
+    //             style: TextStyle(color: Colors.deepPurple, fontSize: 20),
+    //             text: 'Already have an account? ',
+    //             children: [
+    //               TextSpan(
+    //                   recognizer: TapGestureRecognizer()
+    //                     ..onTap = widget.onClickedSignIn,
+    //                   text: 'Log In',
+    //                   style: TextStyle(
+    //                     decoration: TextDecoration.underline,
+    //                     color: Theme.of(context).colorScheme.secondary,
+    //                   ))
+    //             ],
+    //           ),
+    //         ),
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 }
